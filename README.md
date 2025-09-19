@@ -28,7 +28,7 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code> to-do
+    <pre><code> TBA
    </code></pre>
   </div>
 </section>
