@@ -1,0 +1,494 @@
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="./resources/css/bulma.min.css" />
+  <link rel="stylesheet" href="./resources/css/slide.css" />
+  <link rel="stylesheet" href="./resources/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="./resources/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="./resources/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="./resources/css/carasoul.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="./resources/css/index.css" />
+  <link rel="icon" href="./resources/images/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="./resources/css/style.css" media="screen" />
+  <link rel="stylesheet" href="resources/css/dics.original.css" />
+
+
+  <title>3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction</title>
+  <meta property="og:title" content="3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      text-align: center;
+      background-color: #f0f0f0;
+      /* Optional: Set a background color for better visibility */
+    }
+
+    .larger-arrow {
+      font-size: 2em;
+      /* Adjust the font size as needed */
+      letter-spacing: 4em;
+      /* Adjust the letter spacing as needed */
+      display: inline-block;
+      /* Ensures text-align works */
+    }
+
+    .tbl_video {
+      margin-bottom: 40px;
+    }
+  </style>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <style>
+    .video-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 1rem;
+    }
+
+    figure {
+      text-align: center;
+      /* Centers the caption */
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .centered-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+
+  <style>
+    .video-captions {
+      width: 100%;
+      margin: 0.5rem auto;
+      border-collapse: collapse;
+      table-layout: fixed;
+      --num-cols: 4;
+    }
+
+    .video-captions td {
+      width: calc(100% / var(--num-cols));
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">
+      3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://mtaktash.github.io/"> Maria Taktasheva</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://lilygoli.github.io"> Lily Goli</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/FloweroCoder/"> Alessandro Fiorini</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://colinzhenli.github.io/"> Zhen (Colin) Li</a><sup>1</sup>,</span>
+            <br />
+            <span class="author-block">
+              <a href="http://drebain.com/"> Daniel Rebain</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a href="https://taiya.github.io/">Andrea Tagliasacchi</a><sup>1, 2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Simon Fraser University</span>
+            <span class="author-block"><sup>2</sup>University of Toronto</span>
+            <span class="author-block"><sup>3</sup>University of Bologna</span>
+
+            <br />
+            <span class="author-block"><sup>4</sup>University of British Columbia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column has-text-centered">
+      <div class="publication-links">
+        <!-- Paper Link. -->
+        <span class="link-block">
+          <!-- <a href="https://arxiv.org/abs/2404.09591" class="external-link button is-normal is-rounded is-dark"> -->
+          <a href="paper.pdf" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fa fa-file-o"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <!-- Code Link. -->
+        <span class="link-block">
+          <a href="https://github.com" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                </path>
+              </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+            </span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+
+
+    <h1>Abstract</h1>
+    <div class="parent-video-compare-container" id="abstract">
+      <p class="justified">
+        Recent advances in radiance fields and novel view synthesis enable creation of realistic digital twins from
+        photographs. However, current methods struggle with flat, texture-less surfaces, creating uneven and
+        semi-transparent reconstructions, due to an ill-conditioned photometric reconstruction objective. Surface
+        reconstruction methods solve this issue but sacrifice visual quality. We propose a novel hybrid 2D/3D
+        representation that jointly optimizes constrained planar (2D) Gaussians for modeling flat surfaces and freeform
+        (3D) Gaussians for the rest of the scene. Our end-to-end approach dynamically detects and refines planar
+        regions, improving both visual fidelity and geometric accuracy. It achieves state-of-the-art depth estimation on
+        ScanNet++ and ScanNetv2, and excels at mesh extraction without overfitting to a specific camera model, showing
+        its effectiveness in producing high-quality reconstruction of indoor scenes.
+      </p>
+      <br>
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted
+          src="./resources/videos/garden/checkerboard.mp4"
+          onplay="resizeAndPlay(this); this.playbackRate = 0.5;"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 1;">
+        <tr>
+          <td>Faux checkerboard pattern projected onto a garden scene. Our method produces a planar representation that
+            is
+            aligned with true planar geometry.</td>
+        </tr>
+      </table>
+      <br>
+    </div>
+
+    <h1>Joint planar/non-planar rendering</h1>
+
+    <div class="parent-video-compare-container" id="foxstitch">
+      <p class="justified">
+        Render of a fox scene (<strong>left</strong>), faux checkerboard pattern projected onto a fox scene
+        (<strong>middle</strong>), depth render
+        (<strong>right</strong>). Our method allows to capture true planar geometry while faithfully reconstructing the
+        non-planar parts
+        of the scene.</p>
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted src="./resources/videos/fox/stitch_fox.mp4"
+          onplay="resizeAndPlay(this)"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 3;">
+        <tr>
+          <td>Render</td>
+          <td>Faux render</td>
+          <td>Depth render</td>
+        </tr>
+      </table>
+      <br>
+    </div>
+
+
+    <h1>Comparisons on ScanNet++</h1>
+    <div class="parent-video-compare-container" id="gardencompare">
+      <p class="justified">
+        Our method achieves a photorealistic quality on par with fully 3D approaches, while improving geometry over
+        surface reconstruction methods, e.g. no visible hole in the middle of the `garden' scene from
+        Mip-NeRF360.
+      </p>
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted
+          src="./resources/videos/garden/stitch_garden.mp4" onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted
+          src="./resources/videos/garden/stitch_garden_depth.mp4" onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <br>
+
+    </div>
+
+    <div class="parent-video-compare-container" id="scannetppcompare">
+      <p class="justified">
+        Proposed method reduced popping artifacts on planar surfaces (e.g. on the floor and the door in the scene below)
+        compared to
+        baselines.
+      </p>
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted src="./resources/videos/stitch_scene_2.mp4"
+          onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted
+          src="./resources/videos/stitch_scene_2_depth.mp4" onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <br>
+
+    </div>
+
+    <div class="parent-video-compare-container" id="scannetppcompare">
+      <p class="justified">
+        The method faithfully reconstructs planar surfaces and reduces floaters, e.g. table and fridge in the scene
+        below, while
+        preserving
+        high-quality
+        details on non-planar parts of the scene.
+      </p>
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted src="./resources/videos/stitch_scene_4.mp4"
+          onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <div class="video-compare-container" id="materialsDiv">
+        <video class="video" id="materials" loop playsinline autoplay muted
+          src="./resources/videos/stitch_scene_4_depth.mp4" onplay="resizeAndPlay(this);"></video>
+        <canvas height="0" class="videoMerge" id="materialsMerge"></canvas>
+      </div>
+
+      <table class="video-captions" style="--num-cols: 4;">
+        <tr>
+          <td>3DGS-MCMC</td>
+          <td>2DGS</td>
+          <td>PGSR</td>
+          <td>Ours</td>
+        </tr>
+      </table>
+
+      <br>
+
+    </div>
+
+    <h1>ScanNet++ meshes</h1>
+
+    <div class="video-grid">
+      <figure>
+        <model-viewer alt="3DGS" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_1/3DGS.glb">
+        </model-viewer>
+        <figcaption>3DGS</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="2DGS" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_1/2DGS.glb">
+        </model-viewer>
+        <figcaption>2DGS</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="PGSR" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_1/PGSR.glb">
+        </model-viewer>
+        <figcaption>PGSR</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ours" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_1/Ours_merged.glb">
+        </model-viewer>
+        <figcaption>Ours</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ground Truth" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_1/GT.glb">
+        </model-viewer>
+        <figcaption>Ground Truth</figcaption>
+      </figure>
+    </div>
+
+    <div class="video-grid">
+      <figure>
+        <model-viewer alt="3DGS" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_2/3DGS.glb">
+        </model-viewer>
+        <figcaption>3DGS</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="2DGS" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_2/2DGS.glb">
+        </model-viewer>
+        <figcaption>2DGS</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="PGSR" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_2/PGSR.glb">
+        </model-viewer>
+        <figcaption>PGSR</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ours" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_2/Ours_merged.glb">
+        </model-viewer>
+        <figcaption>Ours</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ground Truth" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="45deg 85deg 2570mm" orientation="0 -90deg 0" auto-rotate
+          src="resources/meshes_full/scene_2/GT.glb">
+        </model-viewer>
+        <figcaption>Ground Truth</figcaption>
+      </figure>
+    </div>
+
+
+    <h1>ScanNet++ planar-only meshes</h1>
+
+    <div class="video-grid">
+      <figure>
+        <model-viewer alt="AirPlanes" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene2/airplanes.glb">
+        </model-viewer>
+        <figcaption>AirPlanes</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="PlanarRecon" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene2/planarrecon.glb">
+        </model-viewer>
+        <figcaption>PlanarRecon</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ours" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene2/ours.glb">
+        </model-viewer>
+        <figcaption>Ours</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ground Truth" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene2/GT.glb">
+        </model-viewer>
+        <figcaption>Ground Truth</figcaption>
+      </figure>
+    </div>
+
+    <div class="video-grid">
+      <figure>
+        <model-viewer alt="AirPlanes" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene1/airplanes.glb">
+        </model-viewer>
+        <figcaption>AirPlanes</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="PlanarRecon" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene1/planarrecon.glb">
+        </model-viewer>
+        <figcaption>PlanarRecon</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ours" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene1/ours.glb">
+        </model-viewer>
+        <figcaption>Ours</figcaption>
+      </figure>
+
+      <figure>
+        <model-viewer alt="Ground Truth" shadow-intensity="1" touch-action="pan-y" camera-controls
+          camera-orbit="10deg 85deg 2570mm" auto-rotate src="resources/meshes/scene1/GT.glb">
+        </model-viewer>
+        <figcaption>Ground Truth</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+
+
+</body>
+
+</html>

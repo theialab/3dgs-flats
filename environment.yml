@@ -1,0 +1,28 @@
+name: 3dgs-flats
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+  - nvidia
+dependencies:
+  - cuda-toolkit=12.1
+  - gcc_linux-64=11.2
+  - plyfile
+  - python=3.10
+  - pip
+  - "numpy<2"
+  - pytorch=2.4
+  - torchaudio=2.4
+  - torchvision=0.19
+  - tqdm
+  - tensorboard
+  - open3d
+  - matplotlib
+  - pip:
+    - submodules/diff-gaussian-rasterization
+    - submodules/simple-knn
+    - opencv-python
+    - git+https://github.com/thomgrand/torch_kdtree
+
+
+    
