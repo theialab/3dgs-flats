@@ -36,6 +36,10 @@
 
 
 ## Updates
+### 18/09/2025
+
+Paper is accepted to NeurIPS 2025!
+
 ### 26/08/2025
 
 Code released!
