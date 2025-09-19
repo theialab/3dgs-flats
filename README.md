@@ -1,6 +1,6 @@
 # 3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction
 
-[![button](https://img.shields.io/badge/Project%20Website-orange?style=for-the-badge)](to-do)
+[![button](https://img.shields.io/badge/Project%20Website-orange?style=for-the-badge)](https://theialab.github.io/3dgs-flats/)
 [![button](https://img.shields.io/badge/Paper-blue?style=for-the-badge)](to-do)
 
 <span class="author-block">
@@ -48,7 +48,7 @@ This project is built on top of the [Original 3DGS code base](https://github.com
 
 1. **Clone the Repository:**
    ```sh
-   git clone --recursive ..
+   git clone --recursive https://github.com/theialab/3dgs-flats.git
    cd 3dgs-flats
    ```
 2. **Set Up the Conda Environment:**
