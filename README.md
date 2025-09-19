@@ -40,10 +40,6 @@
 
 Paper is accepted to NeurIPS 2025!
 
-### 26/08/2025
-
-Code released!
-
 ## How to Install
 This project is built on top of the [Original 3DGS code base](https://github.com/graphdeco-inria/gaussian-splatting), [3DGS-MCMC code base](https://github.com/ubc-vision/3dgs-mcmc) and [2DGS code base](https://github.com/hbb1/2d-gaussian-splatting) and has been tested only on Ubuntu 22.04. If you encounter any issues, please refer to the sources for installation instructions.
 
