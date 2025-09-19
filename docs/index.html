@@ -166,8 +166,9 @@
         photographs. However, current methods struggle with flat, texture-less surfaces, creating uneven and
         semi-transparent reconstructions, due to an ill-conditioned photometric reconstruction objective. Surface
         reconstruction methods solve this issue but sacrifice visual quality. We propose a novel hybrid 2D/3D
-        representation that jointly optimizes constrained planar (2D) Gaussians for modeling flat surfaces and freeform
-        (3D) Gaussians for the rest of the scene. Our end-to-end approach dynamically detects and refines planar
+        representation that jointly optimizes constrained <strong>planar (2D)</strong> Gaussians for modeling flat
+        surfaces and <strong>freeform (3D)</strong> Gaussians for the rest of the scene. Our end-to-end approach
+        dynamically detects and refines planar
         regions, improving both visual fidelity and geometric accuracy. It achieves state-of-the-art depth estimation on
         ScanNet++ and ScanNetv2, and excels at mesh extraction without overfitting to a specific camera model, showing
         its effectiveness in producing high-quality reconstruction of indoor scenes.
@@ -182,7 +183,8 @@
 
       <table class="video-captions" style="--num-cols: 1;">
         <tr>
-          <td>Faux checkerboard pattern projected onto a garden scene. Our method produces a planar representation that
+          <td> Faux checkerboard pattern shows our detected 3D plane in the garden scene. Our method produces a planar
+            representation that
             is
             aligned with true planar geometry.</td>
         </tr>
@@ -190,15 +192,21 @@
       <br>
     </div>
 
-    <h1>Joint planar/non-planar rendering</h1>
+
+
 
     <div class="parent-video-compare-container" id="foxstitch">
       <p class="justified">
-        Render of a fox scene (<strong>left</strong>), faux checkerboard pattern projected onto a fox scene
+        Our hybrid representation enables precise reconstruction of <strong> volumetric details such as fur</strong>,
+        while accurately
+        capturing planar geometry for <strong>solid flat surfaces like walls</strong>, without compromising either
+        geometry or
+        appearance, as shown in the figure below.
+        Render of a fox scene (<strong>left</strong>), checkerboard pattern that shows our detected 3D plane in the
+        scene
         (<strong>middle</strong>), depth render
-        (<strong>right</strong>). Our method allows to capture true planar geometry while faithfully reconstructing the
-        non-planar parts
-        of the scene.</p>
+        (<strong>right</strong>).
+      </p>
       <div class="video-compare-container" id="materialsDiv">
         <video class="video" id="materials" loop playsinline autoplay muted src="./resources/videos/fox/stitch_fox.mp4"
           onplay="resizeAndPlay(this)"></video>
@@ -208,7 +216,7 @@
       <table class="video-captions" style="--num-cols: 3;">
         <tr>
           <td>Render</td>
-          <td>Faux render</td>
+          <td>Checkerboard render</td>
           <td>Depth render</td>
         </tr>
       </table>
@@ -220,7 +228,7 @@
     <div class="parent-video-compare-container" id="gardencompare">
       <p class="justified">
         Our method achieves a photorealistic quality on par with fully 3D approaches, while improving geometry over
-        surface reconstruction methods, e.g. no visible hole in the middle of the `garden' scene from
+        surface reconstruction methods, e.g. no <strong>visible hole</strong> in the middle of the `garden' scene from
         Mip-NeRF360.
       </p>
       <div class="video-compare-container" id="materialsDiv">
@@ -259,7 +267,8 @@
 
     <div class="parent-video-compare-container" id="scannetppcompare">
       <p class="justified">
-        Proposed method reduced popping artifacts on planar surfaces (e.g. on the floor and the door in the scene below)
+        Proposed method reduced popping artifacts on planar surfaces, e.g. on the <strong>floor</strong> and the
+        <strong>door</strong> in the scene below,
         compared to
         baselines.
       </p>
@@ -299,7 +308,8 @@
 
     <div class="parent-video-compare-container" id="scannetppcompare">
       <p class="justified">
-        The method faithfully reconstructs planar surfaces and reduces floaters, e.g. table and fridge in the scene
+        The method faithfully reconstructs planar surfaces and reduces floaters, e.g. <strong>table</strong> and
+        <strong>fridge</strong> in the scene
         below, while
         preserving
         high-quality
