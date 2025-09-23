@@ -31,7 +31,7 @@
     <pre><code>
 @misc{3dgsflats,
       title={3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction}, 
-      author={Maria Taktasheva and Lily Goli and Alessandro Fiorini and Zhen Li and Daniel Rebain and Andrea Tagliasacchi},
+      author={Maria Taktasheva, Lily Goli, Alessandro Fiorini, Zhen Li, Daniel Rebain, Andrea Tagliasacchi},
       year={2025},
       eprint={2509.16423},
       archivePrefix={arXiv},
