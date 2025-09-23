@@ -28,8 +28,16 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code> TBA
-   </code></pre>
+    <pre><code>
+@misc{3dgsflats,
+      title={3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction}, 
+      author={Maria Taktasheva, Lily Goli, Alessandro Fiorini, Zhen Li, Daniel Rebain, Andrea Tagliasacchi},
+      year={2025},
+      eprint={2509.16423},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2509.16423},
+}</code></pre>
   </div>
 </section>
 
