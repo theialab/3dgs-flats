@@ -1,6 +1,7 @@
 # 3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction
 
 [![button](https://img.shields.io/badge/Project%20Website-orange?style=for-the-badge)](https://theialab.github.io/3dgs-flats/)
+[![button](https://img.shields.io/badge/arXiv-red?style=for-the-badge)](https://arxiv.org/abs/2509.16423)
 [![button](https://img.shields.io/badge/Paper-blue?style=for-the-badge)](assets/3dgs-flats.pdf)
 
 <span class="author-block">
